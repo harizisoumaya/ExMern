@@ -6,6 +6,8 @@ const app = express();
 const categorieRouter = require("./routes/categorie.route");
 const scategorieRouter = require("./routes/scategorie.route");
 const articleRouter = require("./routes/article.route");
+const userRouter =require("./routes/user.route")
+
 
 // Load environment variables
 dotenv.config();
@@ -33,6 +35,8 @@ mongoose.connect(process.env.DATABASECLOUD || process.env.DATABASE, {
 app.use('/api/categories', categorieRouter);
 app.use('/api/scategories', scategorieRouter);
 app.use('/api/articles', articleRouter);
+app.use('/api/users', userRouter);
+
 
 // Test route
 app.get("/", (req, res) => {
